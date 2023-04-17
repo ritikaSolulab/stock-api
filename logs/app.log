@@ -850,3 +850,9 @@
 {"contentLength":"2452","level":"info","message":"HTTP Access Log","method":"GET","responseTime":1151.63,"status":200,"timestamp":"Mon Apr 17 2023 16:00:14 GMT+0530 (India Standard Time)","url":"/api/v1/get-symbol?keywords=iu"}
 {"contentLength":"2310","level":"info","message":"HTTP Access Log","method":"GET","responseTime":1479.659,"status":200,"timestamp":"Mon Apr 17 2023 16:11:30 GMT+0530 (India Standard Time)","url":"/api/v1/get-symbol?keywords=ib"}
 {"contentLength":"2195","level":"info","message":"HTTP Access Log","method":"GET","responseTime":1162.258,"status":200,"timestamp":"Mon Apr 17 2023 16:18:31 GMT+0530 (India Standard Time)","url":"/api/v1/get-symbol?keywords=p"}
+{"level":"info","message":"Inside verifyToken"}
+{"level":"info","message":"Inside verificationOTP"}
+{"contentLength":"31","level":"info","message":"HTTP Access Log","method":"GET","responseTime":12.377,"status":400,"timestamp":"Mon Apr 17 2023 17:00:48 GMT+0530 (India Standard Time)","url":"/api/v1/stockPrice?symbol=ibm"}
+{"level":"info","message":"Inside register"}
+{"level":"error","message":"User with user@yopmail.com already registered"}
+{"contentLength":"50","level":"info","message":"HTTP Access Log","method":"POST","responseTime":61.607,"status":400,"timestamp":"Mon Apr 17 2023 17:00:50 GMT+0530 (India Standard Time)","url":"/api/v1/auth/register"}

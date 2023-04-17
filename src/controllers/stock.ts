@@ -3,11 +3,16 @@ import lodash from "lodash";
 import { StockModel } from "../model/Stock";
 import { getDailyStock, getSymbol } from "../lib/stock_wrapper";
 import { Request } from "../types";
+import cron from 'node-cron'; 
+
 
 //function to find the stock price from the database from particular symbol
 export const stockApi = async (req: Request, res: Response) => {
   try {
     const { symbol } = req.query;
+    cron.schedule("0 8 * * *", () => {
+      historicalData();
+    })
     if (typeof symbol === "string") {
       if (!isValidSymbol(symbol.toUpperCase())) {
         return res.status(400).json({
@@ -42,7 +47,16 @@ export const stockApi = async (req: Request, res: Response) => {
   }
 };
 
-
+export const historicalData = async() => {
+  const updateStocks = await StockModel.find()
+  for(let i=0;i<historicalData.length;i++){
+    let stockSymbol = updateStocks[i].symbol;
+    const last7Days = await getDailyStock(stockSymbol as string)
+    await StockModel.findOneAndUpdate({symbol:stockSymbol},{stockDetails:last7Days})
+    console.log(i)
+    console.log(stockSymbol)
+    }
+  }
 
 export const isValidSymbol = (symbol: string): Boolean => {
   const pattern = /^[A-Z0-9.]{1,10}$/;
